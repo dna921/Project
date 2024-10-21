@@ -1,28 +1,35 @@
-I have worked on the Healthcare Dataset Project.The purpose of this dataset is to help predict whether a patient has diabetes based on a variety of medical factors. The dataset includes several medical test results (such as Urea, HbA1c, Cholesterol levels, etc.) and demographic information (age, gender), and the goal is to classify whether the patient is diabetic or not (indicated by the CLASS column).
+**Healthcare Dataset Project: Predicting Diabetes**
+The objective of this project is to predict whether a patient has diabetes based on a variety of medical factors. The dataset includes several medical test results such as Urea, HbA1c, Cholesterol levels, and demographic information (age, gender), with the target variable being diabetes diagnosis, represented in the CLASS column (Y for diabetic and N for non-diabetic).
 
-  ID: This is just a unique identifier for each patient and won’t be needed for analysis or modeling.
+Dataset Details:
+ID: A unique identifier for each patient (removed from analysis).
+No_Pation: Another patient identifier, deemed unnecessary for prediction (removed during analysis).
+Gender: A categorical variable (M for male, F for female) requiring value standardization.
+Age: Continuous variable representing the patient's age.
+Medical Tests: Variables such as Urea, Cr, HbA1c, Chol, TG, HDL, LDL, and VLDL are key medical indicators potentially relevant to diabetes prediction.
+BMI: Body Mass Index, considered a critical predictor for diabetes.
+CLASS: The target variable (Y/N), indicating the patient's diabetes status.
 
-  No_Pation: Another identifier that might not add value in predicting diabetes. We’ll check if this can be removed.
+**Exploratory Data Analysis (EDA)**:
+Handled missing values, duplicates, and adjusted data types as needed.
+Conducted a thorough imbalance check, correlation analysis, and visualizations for better insight.
 
-  Gender: Categorical variable with male (M) and female (F) values. We would have to fix the values for Gender.
+**Key Findings**:
+Patients aged between 50-55 years show a higher likelihood of being diabetic.
+More female patients were reported than male, raising potential concerns about gender bias in prediction.
+The correlation heatmap revealed Cr and Urea to be the most highly correlated features.
 
-  AGE: Continuous variable representing the age of the patient.
+**Machine Learning Models**:
+The following machine learning models were employed to solve this binary classification problem:
+Logistic Regression (LR)
+k-Nearest Neighbors (KNN)
+Naive Bayes (NB)
+Support Vector Classifier (SVC)
+Random Forest Classifier (RFC)
+Decision Tree Regressor (DTR)
+XGBoost (XGB)
 
-  Urea, Cr, HbA1c, Chol, TG, HDL, LDL, VLDL: These are various medical test results, which might be important in diagnosing diabetes. We'll analyze each in detail during EDA.
+A train-test split and cross-validation were used to evaluate model performance, ensuring generalization to unseen data. Key evaluation metrics included accuracy, precision, recall, and F1-score, particularly focusing on addressing the imbalance in diabetic vs. non-diabetic classes.
 
-  BMI: Body Mass Index, which is likely an important predictor for diabetes.
-
-  CLASS: This is the target variable (diabetic or non-diabetic). It’s categorical with Y (Yes, diabetic) and N (No, non-diabetic).
-
-I have performed Exploratory Data Analytics in the collab notebook like checking for missing values, duplicate values, changing the datatypes, imbalance check, correlation analysis,
-visualizations for better analysis.
-
-After the EDA, I inferred that age group between 50-55 is most likely to be diabetic. The count plot of Gender shows that there are more female patients reported than male so there might be a bias if we make predication according to gender. From the correlation heatmap, we can visualise that Cr and Urea are most highly correlated.
-
-Moving ahead, I carried ML modelling in the collab notebook. The ML models that I used are LR,KNN,NB,SVC,RFC,DTR,XGB.
-
-Using this, a binary classification problem was solved by predicting whether a patient has diabetes (`Y` or `N`) based on medical and demographic data. I trained multiple models to tackle this classification task. Another key issue addressed was the imbalance in the dataset, where diabetic patients were more prevalent than non-diabetic ones, which required careful model evaluation using precision, recall, and F1-score to ensure fair predictions for both classes. To ensure the models generalized well to new data, I also split the dataset into training and testing sets, ultimately selecting the best-performing model based on a variety of evaluation metrics.
-
- To evaluate our model, we have split the dataset into training and testing data and also performed cross-validation to check if the model can generalize well to unseen data. Then we created a classification report to find the best-performing model.
-
-The best performing model is XGB as it had the maximum accuracy score based on the cross-validation results, hence giving the most accurate prediction.
+**Model Performance**:
+The XGBoost (XGB) model outperformed other models, achieving the highest accuracy based on cross-validation results, and was selected as the best-performing model for diabetes prediction.
